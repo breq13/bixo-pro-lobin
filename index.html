@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Pergunta</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #b32ba0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #question {
+            color: #ffffff;
+            font-size: 24px;
+            text-align: center;
+            font-family: "Comic Sans MS", "Comic Sans", cursive;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 18px;
+            font-family: "Comic Sans MS", "Comic Sans", cursive;
+            text-align: center;
+            cursor: pointer;
+            background-color: #d58cd1; /* Cor roxa clara */
+            color: #ffffff; /* Cor branca */
+            border: 1px solid black; /* Borda preta fina */
+            margin: 10px; /* Adicionando margem entre os botões */
+            border-radius: 5px;
+        }
+
+        #noContainer {
+            width: 100%;
+            text-align: center;
+        }
+
+        #no {
+            transition: 0.2s;
+        }
+
+        #yes {
+            transition: 0.2s;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="question">VAI DEIXAR EU SER SEU PADRASTO?</div>
+    <div id="options">
+        <div id="noContainer">
+            <button id="no" class="button">Não quero</button>
+            <a href="https://youtu.be/3nyjRMfyWLo"><button id="yes" class="button">Vou deixar</button></a>
+        </div>
+    </div>
+
+    <script>
+        var noButton = document.getElementById("no");
+        var noContainer = document.getElementById("noContainer");
+
+        function moveNoButton() {
+            var containerWidth = noContainer.offsetWidth - noButton.offsetWidth;
+            var containerHeight = noContainer.offsetHeight - noButton.offsetHeight;
+
+            var newX = Math.random() * containerWidth;
+            var newY = Math.random() * containerHeight;
+
+            newX = Math.max(newX, 0);
+            newX = Math.min(newX, containerWidth);
+            newY = Math.max(newY, 0);
+            newY = Math.min(newY, containerHeight);
+
+            noButton.style.transform = `translate(${newX}px, ${newY}px)`;
+        }
+
+        // Acionar o movimento quando o botão "Não" é clicado:
+        noButton.addEventListener("click", moveNoButton);
+    </script>
+</body>
+
+      </html>
